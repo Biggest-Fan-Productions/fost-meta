@@ -12,11 +12,8 @@ alias fost
         ../fost-postgres//fost
         ../fost-py//fost
     ;
-explicit fost ;
 
 alias docs
     :
         Docs//index.html
     ;
-explicit docs ;
-
