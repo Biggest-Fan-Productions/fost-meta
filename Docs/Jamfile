@@ -15,8 +15,14 @@ doxygen index.html
         [ path.glob-tree $(TOP)/../fost-orm/Cpp/include : *.hpp ]
         [ path.glob-tree $(TOP)/../fost-orm/Docs : *.hpp *.cpp : fost-orm.hpp ]
 
+        [ path.glob-tree $(TOP)/../fost-postgres/Cpp/include : *.hpp ]
+        [ path.glob-tree $(TOP)/../fost-postgres/Docs : *.hpp *.cpp : fost-postgres.hpp ]
+
         [ path.glob-tree $(TOP)/../fost-py/Cpp/include : *.hpp ]
         [ path.glob-tree $(TOP)/../fost-py/Docs : *.hpp *.cpp : fost-py.hpp ]
+
+        [ path.glob-tree $(TOP)/../fost-windows/Cpp/include : *.hpp ]
+        [ path.glob-tree $(TOP)/../fost-windows/Docs : *.hpp *.cpp : fost-windows.hpp ]
     :
         -<threading>multi # Works around a bug in boost.build
         <location>../../../dist/usr/share/fost/ # Relative to the location in build.tmp
