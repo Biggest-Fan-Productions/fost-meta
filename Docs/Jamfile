@@ -4,7 +4,7 @@ import path ;
 
 doxygen index.html
     :
-        [ path.glob-tree $(TOP)//Docs : *.hpp *.cpp ]
+        [ path.glob-tree $(TOP)/Docs : *.hpp *.cpp ]
 
         [ path.glob-tree $(TOP)/../fost-base/Cpp/include : *.hpp ]
         [ path.glob-tree $(TOP)/../fost-base/Docs : *.hpp *.cpp : fost-base.hpp ]
