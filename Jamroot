@@ -1,0 +1,12 @@
+path-constant TOP : . ;
+include $(TOP)/../boost-version.jam ;
+include $(TOP)/../fost-base/fost.jam ;
+
+fost-project fost-meta ;
+
+alias docs
+    :
+        Docs//index.html
+    ;
+explicit docs ;
+
