@@ -4,6 +4,16 @@ include $(TOP)/../fost-base/fost.jam ;
 
 fost-project fost-meta ;
 
+alias fost
+    :
+        ../fost-base//fost
+        ../fost-internet//fost
+        ../fost-orm//fost
+        ../fost-postgres//fost
+        ../fost-py//fost
+    ;
+explicit fost ;
+
 alias docs
     :
         Docs//index.html

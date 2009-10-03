@@ -3,7 +3,7 @@ cd `dirname $0`
 
 if test -z $1
 then {
-    export VARIANTS="docs"
+    export VARIANTS="fost docs"
 } else {
     export VARIANTS=$*
 }
