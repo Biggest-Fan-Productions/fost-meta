@@ -17,3 +17,13 @@ alias docs
     :
         Docs//index.html
     ;
+
+alias tests
+    :
+        ../fost-base//tests
+        ../fost-internet//tests
+        ../fost-orm//tests
+        ../fost-postgres//tests
+        ../fost-py//tests
+    ;
+explicit tests ;
