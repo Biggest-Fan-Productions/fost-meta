@@ -1,0 +1,29 @@
+path-constant TOP : . ;
+include $(TOP)/../boost-version.jam ;
+include $(TOP)/../fost-base/fost.jam ;
+
+fost-project fost-meta ;
+
+alias fost
+    :
+        ../fost-base//fost
+        ../fost-internet//fost
+        ../fost-orm//fost
+        ../fost-postgres//fost
+        ../fost-py//fost
+    ;
+
+alias docs
+    :
+        Docs//index.html
+    ;
+
+alias tests
+    :
+        ../fost-base//tests
+        ../fost-internet//tests
+        ../fost-orm//tests
+        ../fost-postgres//tests
+        ../fost-py//tests
+    ;
+explicit tests ;
