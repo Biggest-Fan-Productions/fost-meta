@@ -10,6 +10,6 @@ svn co http://svn.felspar.com/external/PostgreSQL PostgreSQL && cd PostgreSQL &&
 svn co http://svn.felspar.com/public/fost-py/trunk fost-py
 svn co http://svn.felspar.com/public/fost-windows/trunk fost-windows
 
-svn co http://svn.felspar.com/public/AppServiceSDK/trunk AppServiceSDK
+svn co http://svn.felspar.com/public/AppServiceSDK/trunk appservicesdk
 
 svn co http://svn.felspar.com/public/spruce/trunk spruce
