@@ -9,7 +9,6 @@ alias fost
         ../fost-base//fost
         ../fost-internet//fost
         ../fost-orm//fost
-        ../fost-postgres//fost
         ../fost-py//fost
     ;
 
@@ -17,13 +16,20 @@ alias docs
     :
         Docs//index.html
     ;
+explicit docs ;
 
 alias tests
     :
         ../fost-base//tests
         ../fost-internet//tests
         ../fost-orm//tests
-        ../fost-postgres//tests
         ../fost-py//tests
     ;
 explicit tests ;
+
+alias postgres
+    :
+        ../fost-postgres//fost
+        ../fost-postgres//tests
+    ;
+explicit postgres ;
