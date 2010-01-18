@@ -4,22 +4,19 @@ include $(TOP)/../fost-base/fost.jam ;
 
 fost-project fost-meta ;
 
-alias fost
-    :
+alias fost :
         ../fost-base//fost
         ../fost-internet//fost
         ../fost-orm//fost
         ../fost-py//fost
     ;
 
-alias docs
-    :
+alias docs :
         Docs//index.html
     ;
 explicit docs ;
 
-alias tests
-    :
+alias tests :
         ../fost-base//tests
         ../fost-internet//tests
         ../fost-orm//tests
@@ -27,8 +24,7 @@ alias tests
     ;
 explicit tests ;
 
-alias postgres
-    :
+alias postgres :
         ../fost-postgres//fost
         ../fost-postgres//tests
     ;
