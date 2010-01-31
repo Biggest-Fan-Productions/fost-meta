@@ -25,7 +25,7 @@ doxygen index.html
         [ path.glob-tree $(TOP)/../fost-windows/Docs : *.hpp *.cpp : fost-windows.hpp ]
     :
         -<threading>multi # Works around a bug in boost.build
-        <location>../../../dist/usr/share/fost/ # Relative to the location in build.tmp
+        <location>$(TOP)/../dist/usr/share/fost/ # Relative to the location in build.tmp
 
         <doxygen:param>SEARCH_INCLUDES=YES
         <doxygen:param>INCLUDE_PATH=Cpp/include
