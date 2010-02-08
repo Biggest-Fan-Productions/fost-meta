@@ -16,6 +16,20 @@ alias docs :
     ;
 explicit docs ;
 
+alias examples :
+        ../fost-base//examples
+        ../fost-internet//examples
+        ../fost-orm//examples
+        ../fost-py//examples
+    ;
+explicit examples ;
+
+alias postgres :
+        ../fost-postgres//fost
+        ../fost-postgres//tests
+    ;
+explicit postgres ;
+
 alias tests :
         ../fost-base//tests
         ../fost-internet//tests
@@ -24,8 +38,16 @@ alias tests :
     ;
 explicit tests ;
 
-alias postgres :
-        ../fost-postgres//fost
-        ../fost-postgres//tests
+alias windows :
+        ../fost-windows
     ;
-explicit postgres ;
+explicit windows ;
+
+
+alias all :
+        ../fost-internet//aws
+        docs
+        examples
+        fost
+    ;
+explicit all ;
