@@ -5,6 +5,7 @@ include $(TOP)/../fost-base/fost.jam ;
 fost-project fost-meta ;
 
 alias fost :
+        ../fost-aws//fost
         ../fost-base//fost
         ../fost-internet//fost
         ../fost-orm//fost
@@ -17,6 +18,7 @@ alias docs :
 explicit docs ;
 
 alias examples :
+        ../fost-aws//examples
         ../fost-base//examples
         ../fost-internet//examples
         ../fost-orm//examples
@@ -45,7 +47,6 @@ explicit windows ;
 
 
 alias all :
-        ../fost-internet//aws
         docs
         examples
         fost
