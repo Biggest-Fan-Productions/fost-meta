@@ -5,6 +5,7 @@ include $(TOP)/../fost-base/fost.jam ;
 fost-project fost-meta ;
 
 alias fost :
+        ../fost-aws//fost
         ../fost-base//fost
         ../fost-internet//fost
         ../fost-orm//fost
@@ -16,6 +17,21 @@ alias docs :
     ;
 explicit docs ;
 
+alias examples :
+        ../fost-aws//examples
+        ../fost-base//examples
+        ../fost-internet//examples
+        ../fost-orm//examples
+        ../fost-py//examples
+    ;
+explicit examples ;
+
+alias postgres :
+        ../fost-postgres//fost
+        ../fost-postgres//tests
+    ;
+explicit postgres ;
+
 alias tests :
         ../fost-base//tests
         ../fost-internet//tests
@@ -24,8 +40,15 @@ alias tests :
     ;
 explicit tests ;
 
-alias postgres :
-        ../fost-postgres//fost
-        ../fost-postgres//tests
+alias windows :
+        ../fost-windows
     ;
-explicit postgres ;
+explicit windows ;
+
+
+alias all :
+        docs
+        examples
+        fost
+    ;
+explicit all ;
