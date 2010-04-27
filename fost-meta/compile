@@ -10,6 +10,7 @@ then {
     export TOOLSET=darwin
     export DYLD_LIBRARY_PATH=../dist/lib
     export LANG=C
+    export LC_CTYPE="C"
 }
 fi
 
