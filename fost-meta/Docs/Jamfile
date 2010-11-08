@@ -1,8 +1,6 @@
-using doxygen ;
-import doxygen ;
 import path ;
 
-doxygen index.html
+fost-doxygen usr/share/fost
     :
         [ path.glob-tree $(TOP)/Docs : *.hpp *.cpp ]
 
@@ -23,12 +21,4 @@ doxygen index.html
 
         [ path.glob-tree $(TOP)/../fost-windows/Cpp/include : *.hpp ]
         [ path.glob-tree $(TOP)/../fost-windows/Docs : *.hpp *.cpp : fost-windows.hpp ]
-    :
-        -<threading>multi # Works around a bug in boost.build
-        # Boost.Build in 1.42.0 requires this to be relative
-        <location>../../../dist/usr/share/fost/ # Relative to Docs in the build folder
-
-        <doxygen:param>SEARCH_INCLUDES=YES
-        <doxygen:param>INCLUDE_PATH=Cpp/include
-        <doxygen:param>SHOW_INCLUDE_FILES=YES
     ;
