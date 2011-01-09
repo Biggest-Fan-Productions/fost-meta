@@ -20,7 +20,7 @@ alias fost :
     ;
 
 alias docs :
-        Docs//index.html
+        Docs
     ;
 explicit docs ;
 
