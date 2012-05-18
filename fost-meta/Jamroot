@@ -17,6 +17,7 @@ alias fost :
         ../fost-internet//fost
         ../fost-orm//fost
         ../fost-py//fost
+        ../fost-web//fost
     ;
 
 alias docs :
