@@ -4,7 +4,7 @@ svn up .
 
 if [ ! -e fost-web ]
 then
-    git clone git@github.com:Felspar/fost-web.git
+    git clone git@github.com:KayEss/fost-web.git
     cd fost-web
     git flow init -d
     git pull origin develop
