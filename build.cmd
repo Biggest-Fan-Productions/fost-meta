@@ -1,5 +1,4 @@
 pushd %0\..
-call update
 
 call fost-meta\compile %*
 
