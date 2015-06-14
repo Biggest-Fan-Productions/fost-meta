@@ -25,3 +25,6 @@
 [submodule "fost-web"]
 	path = fost-web
 	url = git@github.com:KayEss/fost-web.git
+[submodule "fost-beanbag"]
+	path = fost-beanbag
+	url = git@github.com:KayEss/fost-beanbag.git
