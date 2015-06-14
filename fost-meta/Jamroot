@@ -4,9 +4,11 @@ include $(TOP)/../fost-base/fost.jam ;
 
 use-project fost-aws : ../fost-aws ;
 use-project fost-base : ../fost-base ;
+use-project fost-beanbag : ../fost-beanbag ;
 use-project fost-internet : ../fost-internet ;
 use-project fost-orm : ../fost-orm ;
 use-project fost-py : ../fost-py ;
+use-project fost-web : ../fost-web ;
 
 fost-project fost-meta ;
 
@@ -14,6 +16,7 @@ fost-project fost-meta ;
 alias fost :
         ../fost-aws//fost
         ../fost-base//fost
+        ../fost-beanbag//fost
         ../fost-internet//fost
         ../fost-orm//fost
         ../fost-py//fost
@@ -42,9 +45,11 @@ explicit postgres ;
 
 alias tests :
         ../fost-base//tests
+        ../fost-beanbag//tests
         ../fost-internet//tests
         ../fost-orm//tests
         ../fost-py//tests
+        ../fost-web//tests
     ;
 explicit tests ;
 
