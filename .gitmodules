@@ -34,3 +34,12 @@
 [submodule "cord"]
 	path = cord
 	url = git@github.com:KayEss/f5-cord.git
+[submodule "fost-postgres"]
+	path = fost-postgres
+	url = git@github.com:KayEss/fost-postgres.git
+[submodule "fostgres"]
+	path = fostgres
+	url = git@github.com:KayEss/fostgres.git
+[submodule "PostgreSQL"]
+	path = PostgreSQL
+	url = git@github.com:KayEss/fost-libpq.git
