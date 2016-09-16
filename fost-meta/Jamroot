@@ -9,6 +9,7 @@ use-project fost-internet : ../fost-internet ;
 use-project fost-orm : ../fost-orm ;
 use-project fost-py : ../fost-py ;
 use-project fost-web : ../fost-web ;
+use-project fostgres : ../fostgres ;
 
 fost-project fost-meta ;
 
@@ -21,6 +22,7 @@ alias fost :
         ../fost-orm//fost
         ../fost-py//fost
         ../fost-web//fost
+        ../fostgres//fostgres
     ;
 
 alias docs :
@@ -50,6 +52,7 @@ alias tests :
         ../fost-orm//tests
         ../fost-py//tests
         ../fost-web//tests
+        ../fostgres//test
     ;
 explicit tests ;
 
