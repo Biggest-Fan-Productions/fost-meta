@@ -18,7 +18,7 @@ fi
 
 if ../bjam -j$CPUCOUNT $TOOLSET $VARIANTS $(../python.opts.sh) $*
 then {
-    echo fost-meta $VARIANTS OK
+    echo fost-meta $VARIANTS OK | (ponysay 2> /dev/null || cat)
     exit 0
 } else {
     exit 1
