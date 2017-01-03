@@ -68,6 +68,7 @@ alias all :
         docs
         examples
         fost
+        ../odin//odin
         postgres
     ;
 explicit all ;
