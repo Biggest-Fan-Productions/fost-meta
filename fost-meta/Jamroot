@@ -10,6 +10,7 @@ use-project fost-orm : ../fost-orm ;
 use-project fost-py : ../fost-py ;
 use-project fost-web : ../fost-web ;
 use-project fostgres : ../fostgres ;
+use-project odin : ../odin ;
 
 fost-project fost-meta ;
 
@@ -42,6 +43,8 @@ explicit examples ;
 alias postgres :
         ../fost-postgres//fost
         ../fost-postgres//tests
+        ../fostgres//test
+        ../odin//test
     ;
 explicit postgres ;
 
@@ -52,7 +55,6 @@ alias tests :
         ../fost-orm//tests
         ../fost-py//tests
         ../fost-web//tests
-        ../fostgres//test
     ;
 explicit tests ;
 
@@ -66,5 +68,7 @@ alias all :
         docs
         examples
         fost
+        ../odin//odin
+        postgres
     ;
 explicit all ;
