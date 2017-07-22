@@ -4,7 +4,7 @@ MAINTAINER Kirit Saelensminde
 WORKDIR /src
 
 RUN \
-    apt-get install -y software-properties-common && \
+    apt-get install -y software-properties-common lbzip2 && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && \
     add-apt-repository ppa:h-rayflood/llvm && \
     apt-get update && \

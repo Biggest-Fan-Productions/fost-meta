@@ -4,6 +4,8 @@
 */
 #define _XOPEN_SOURCE 700
 #include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
 #include <stdlib.h> // exit
@@ -19,7 +21,7 @@ static void sig_handler(int sig) {
     int status;
     kill(child, sig);
     waitpid(child, &status, 0);
-    exit(0);
+    exit(EXIT_FAILURE);
 }
 
 
@@ -62,12 +64,14 @@ int main(int argc, char *argv[], char *env[]) {
     signal(SIGTERM, sig_handler);
     for ( ;; ) {
         if ( wait(&status) == child ) {
+            if ( WIFEXITED(status) ) {
 #ifdef RESTART
-            sleep(1);
-            child = execute(&set, argv[1], argv + 1, env);
+                sleep(1);
+                child = execute(&set, argv[1], argv + 1, env);
 #else
-            exit(status);
+                exit(WEXITSTATUS(status));
 #endif
+            }
         }
     }
 }
