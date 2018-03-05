@@ -1,5 +1,5 @@
-FROM kayess/ubuntu-updated:latest
+FROM kayess/minit:latest
 MAINTAINER Kirit Saelensminde
 
-ADD minit /sbin/minit
-ENTRYPOINT ["/sbin/minit"]
+ADD minit-restart /sbin/minit-restart
+ENTRYPOINT ["/sbin/minit-restart"]
