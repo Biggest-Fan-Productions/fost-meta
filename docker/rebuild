@@ -4,23 +4,17 @@ set -ex
 SRC=$(pwd)/$(dirname $0)
 cd $(dirname $0)
 
-# Ensure IP forwarding is enabled
-sudo sysctl net.ipv4.ip_forward=1
-# Set up port forwarding for 3242 to apt-cacher
-IPRULE="PREROUTING -t nat -p tcp --dport 3142 -j DNAT --to-destination $(host apt-cacher | grep -o "[0-9]*.[0-9]*.[0-9]*.[0-9]*$" | head -n 1):3142"
-sudo iptables -C $IPRULE || sudo iptables -A $IPRULE
-
 function dockerize {
     if [ -a $1-$2 ]; then
-        sudo docker build -t kayess/$1:$2 $1-$2
+        sudo docker build --no-cache -t kayess/$1:$2 $1-$2
     else
         sed -i s/:latest/:$2/ $1/Dockerfile
-        sudo docker build -t kayess/$1:$2 $1
+        sudo docker build --no-cache -t kayess/$1:$2 $1
     fi
     sudo docker push kayess/$1:$2
 }
 
-for RELEASE in trusty xenial yakkety zesty artful; do
+for RELEASE in trusty xenial artful; do
     # Copy this lot into a temp folder so we can make changes
     DIR=$(mktemp -d)
     cp -r $SRC/* $DIR/
