@@ -1,4 +1,4 @@
-FROM kayess/ubuntu-updated:latest
+FROM kayess/minit:latest
 MAINTAINER Kirit Saelensminde
 
 ADD minit-restart /sbin/minit-restart
