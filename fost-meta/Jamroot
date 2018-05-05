@@ -21,7 +21,6 @@ alias fost :
         ../fost-beanbag//fost
         ../fost-internet//fost
         ../fost-orm//fost
-        ../fost-py//fost
         ../fost-web//fost
         ../fostgres//fostgres
     ;
@@ -36,7 +35,6 @@ alias examples :
         ../fost-base//examples
         ../fost-internet//examples
         ../fost-orm//examples
-        ../fost-py//examples
     ;
 explicit examples ;
 
@@ -48,12 +46,18 @@ alias postgres :
     ;
 explicit postgres ;
 
+alias python :
+        ../fost-py//examples
+        ../fost-py//fost
+        ../fost-py//tests
+    ;
+explicit python ;
+
 alias tests :
         ../fost-base//tests
         ../fost-beanbag//tests
         ../fost-internet//tests
         ../fost-orm//tests
-        ../fost-py//tests
         ../fost-web//tests
     ;
 explicit tests ;
