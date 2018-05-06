@@ -7,3 +7,5 @@ add_subdirectory(cord)
 add_subdirectory(threading)
 add_subdirectory(fost-base)
 add_subdirectory(fost-internet)
+add_subdirectory(fost-web)
+
