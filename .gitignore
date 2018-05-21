@@ -2,7 +2,7 @@
 /bjam.run
 /boost-build.jam
 /boost-version.jam
-/build.tmp
-/dist
-/dist-*
+/build.tmp/
+/dist/
+/dist-*/
 /python.opts.sh
