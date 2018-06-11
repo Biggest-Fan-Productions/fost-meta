@@ -8,13 +8,13 @@ function dockerize {
     if [ -a $1-$2 ]; then
         sudo docker build --no-cache -t kayess/$1:$2 $1-$2
     else
-        sed -i s/:latest/:$2/ $1/Dockerfile
+        sed -i s/:latest/:$2/ $1/Dockerfilenice position to be in if it is
         sudo docker build --no-cache -t kayess/$1:$2 $1
     fi
     sudo docker push kayess/$1:$2
 }
 
-for RELEASE in trusty xenial artful bionic; do
+for RELEASE in xenial artful bionic; do
     # Copy this lot into a temp folder so we can make changes
     DIR=$(mktemp -d)
     cp -r $SRC/* $DIR/
