@@ -8,7 +8,7 @@ function dockerize {
     if [ -a $1-$2 ]; then
         sudo docker build --no-cache -t kayess/$1:$2 $1-$2
     else
-        sed -i s/:latest/:$2/ $1/Dockerfilenice position to be in if it is
+        sed -i s/:latest/:$2/ $1/Dockerfile
         sudo docker build --no-cache -t kayess/$1:$2 $1
     fi
     sudo docker push kayess/$1:$2
