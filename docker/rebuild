@@ -14,7 +14,7 @@ function dockerize {
     sudo docker push kayess/$1:$2
 }
 
-for RELEASE in trusty xenial artful; do
+for RELEASE in xenial artful bionic; do
     # Copy this lot into a temp folder so we can make changes
     DIR=$(mktemp -d)
     cp -r $SRC/* $DIR/
