@@ -13,9 +13,6 @@
 [submodule "fost-internet"]
 	path = fost-internet
 	url = git@github.com:KayEss/fost-internet.git
-[submodule "fost-py"]
-	path = fost-py
-	url = git@github.com:KayEss/fost-py.git
 [submodule "fost-web"]
 	path = fost-web
 	url = git@github.com:KayEss/fost-web.git
