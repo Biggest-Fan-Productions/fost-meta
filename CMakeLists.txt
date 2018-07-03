@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 
+enable_testing()
+
 # These contain targets and functions needed elsewhere
 add_subdirectory(cord)
 add_subdirectory(fost-base)
