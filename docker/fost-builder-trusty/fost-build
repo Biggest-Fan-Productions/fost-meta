@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-export PREFIX=/src/dist-docker
-Boost/install $(lsb_release -cs)
-$*
