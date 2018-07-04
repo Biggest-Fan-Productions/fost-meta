@@ -5,9 +5,9 @@ ENTRYPOINT ["/sbin/minit"]
 
 ADD bin/* /usr/local/bin/
 ADD lib/* /usr/local/lib/
-ADD Configuration /etc/mengmom/
+ADD etc/* /etc/
 ADD share/odin/* /usr/share/odin/
-ADD Static /usr/share/mengmom/static/
-ADD Templates /usr/share/mengmom/templates/
+# ADD Static /usr/share/mengmom/static/
+# ADD Templates /usr/share/mengmom/templates/
 
 RUN ldconfig
