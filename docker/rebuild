@@ -10,23 +10,6 @@ for IMAGE in fost-runtime fost-builder; do
     sudo docker pull kayess/$IMAGE:$RELEASE
 done
 
-# Get our Boost stuff in line
-mkdir -p ../tmp/$RELEASE
-if test -e ../tmp/$RELEASE/Boost
-then {
-    pushd ../tmp/$RELEASE/Boost
-    git pull origin master
-} else {
-    git clone git@github.com:KayEss/fost-boost.git ../tmp/$RELEASE/Boost
-    pushd ../tmp/$RELEASE/Boost
-    ln ../../../../Boost/1_62_0.tar.bz2
-}
-fi
-git submodule init
-git submodule sync --recursive
-git submodule update --init --recursive
-popd
-
 # Compile the code
 mkdir -p ../tmp/$RELEASE/{build.tmp,dist}
 sudo docker run -u $(id -u):$(id -g)  \
@@ -35,8 +18,7 @@ sudo docker run -u $(id -u):$(id -g)  \
     -v $(pwd)/../tmp/$RELEASE/build.tmp:/src/build.tmp \
     -v $(pwd)/../tmp/$RELEASE/dist:/src/dist \
     -it --rm=true kayess/fost-builder:$RELEASE \
-        bash -c -- "Boost/build 62 0 && PostgreSQL/configure \
-            mkdir -p build.tmp && cd build.tmp && \
+        bash -c -- "cd build.tmp && \
             cmake -G Ninja \
                 -DCMAKE_BUILD_TYPE=Release \
                 -DCMAKE_INSTALL_PREFIX=../dist \
