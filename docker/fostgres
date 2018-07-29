@@ -12,9 +12,9 @@ done
 
 # Compile the code
 mkdir -p ../tmp/$RELEASE/{build.tmp,dist}
+rm -rf  ../tmp/$RELEASE/dist/*
 sudo docker run -u $(id -u):$(id -g)  \
     -v $(pwd)/..:/src \
-    -v $(pwd)/../tmp/$RELEASE/Boost:/src/Boost/ \
     -v $(pwd)/../tmp/$RELEASE/build.tmp:/src/build.tmp \
     -v $(pwd)/../tmp/$RELEASE/dist:/src/dist \
     -it --rm=true kayess/fost-builder:$RELEASE \
@@ -22,9 +22,6 @@ sudo docker run -u $(id -u):$(id -g)  \
             cmake -G Ninja \
                 -DCMAKE_BUILD_TYPE=Release \
                 -DCMAKE_INSTALL_PREFIX=../dist \
-                -DBOOST_VMAJOR=1 \
-                -DBOOST_VMINOR=62 \
-                -DBOOST_VPATCH=0 \
                 .. && \
             ninja install/strip"
 cp mengmom/Dockerfile ../tmp/$RELEASE/dist/
