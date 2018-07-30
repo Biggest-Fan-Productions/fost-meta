@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd $(dirname $0)
 set -ex
 
 TAG=$(git describe --dirty)
