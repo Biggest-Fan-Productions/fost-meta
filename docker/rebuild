@@ -14,9 +14,6 @@ function dockerize {
     sudo docker push fost/$1:$TAG
 }
 
-## Make sure we have the latest source images. Note that `bionic`
-## appears both here and the ubuntu/Dockerfile. To change
-## release both must be updated
 sudo docker pull ubuntu:$UBUNTU
 dockerize ubuntu
 dockerize builder

@@ -1,6 +1,4 @@
-## The release name, `bionic`, appears both here and in the `rebuild` script.
-## Both must be changed.
-ARG UBUNTU=bionic
+ARG UBUNTU
 FROM ubuntu:${UBUNTU}
 MAINTAINER Kirit Saelensminde
 
