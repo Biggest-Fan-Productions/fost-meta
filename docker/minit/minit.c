@@ -1,8 +1,10 @@
-/*
+/**
     Minimal init for Docker containers.
-    http://ewontfix.com/14/
+
+    The original idea for this taken from <http://ewontfix.com/14/>
 */
 #define _XOPEN_SOURCE 700
+#define _GNU_SOURCE // For execvpe
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -64,14 +66,14 @@ int main(int argc, char *argv[], char *env[]) {
     signal(SIGTERM, sig_handler);
     for ( ;; ) {
         if ( wait(&status) == child ) {
-            if ( WIFEXITED(status) ) {
 #ifdef RESTART
+            if ( WIFEXITED(status) || WIFSIGNALED(status) ) {
                 sleep(1);
                 child = execute(&set, argv[1], argv + 1, env);
-#else
-                exit(WEXITSTATUS(status));
-#endif
             }
+#else
+            exit(WEXITSTATUS(status));
+#endif
         }
     }
 }

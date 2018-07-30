@@ -1,0 +1,8 @@
+/Boost/1_*
+/Boost/boost/
+/build.tmp/
+/dist/
+/dist-*/
+/tmp/
+
+.git/

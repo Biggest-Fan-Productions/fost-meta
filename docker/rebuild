@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -ex
+
+TAG=$(git describe --dirty)
+UBUNTU=bionic
+
+
+function dockerize {
+    sudo docker build --no-cache \
+        --build-arg TAG=$TAG \
+        --build-arg UBUNTU=$UBUNTU \
+        --tag fost/$1:$TAG $1
+    sudo docker push fost/$1:$TAG
+}
+
+## Make sure we have the latest source images. Note that `bionic`
+## appears both here and the ubuntu/Dockerfile. To change
+## release both must be updated
+sudo docker pull ubuntu:$UBUNTU
+dockerize ubuntu
+dockerize builder
+dockerize minit
+dockerize runtime
+
+sudo docker build --no-cache \
+        --build-arg TAG=$TAG \
+        --file all/Dockerfile \
+        --tag fost/all:$TAG ..
+sudo docker push fost/all:$TAG
+
