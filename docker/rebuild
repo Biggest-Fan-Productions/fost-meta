@@ -16,11 +16,11 @@ function dockerize {
 ## Make sure we have the latest source images. Note that `bionic`
 ## appears both here and the ubuntu/Dockerfile. To change
 ## release both must be updated
-# sudo docker pull ubuntu:$UBUNTU
-# dockerize ubuntu
-# dockerize builder
-# dockerize minit
-# dockerize runtime
+sudo docker pull ubuntu:$UBUNTU
+dockerize ubuntu
+dockerize builder
+dockerize minit
+dockerize runtime
 
 sudo docker build --no-cache \
         --build-arg TAG=$TAG \
