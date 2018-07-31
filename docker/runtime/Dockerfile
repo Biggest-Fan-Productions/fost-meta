@@ -1,5 +1,5 @@
 ARG TAG
-FROM fost/minit:$TAG
+FROM fost/ubuntu:$TAG
 MAINTAINER Kirit Saelensminde
 
 RUN \

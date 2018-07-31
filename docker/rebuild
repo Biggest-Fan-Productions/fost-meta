@@ -17,7 +17,6 @@ function dockerize {
 sudo docker pull ubuntu:$UBUNTU
 dockerize ubuntu
 dockerize builder
-dockerize minit
 dockerize runtime
 
 sudo docker build --no-cache \
