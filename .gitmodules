@@ -40,3 +40,6 @@
 [submodule "fost-wright"]
 	path = fost-wright
 	url = git@github.com:KayEss/fost-wright.git
+[submodule "json-schema"]
+	path = json-schema
+	url = git@github.com:KayEss/json-schema.git
