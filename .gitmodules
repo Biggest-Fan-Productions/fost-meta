@@ -4,9 +4,6 @@
 [submodule "crypto++"]
 	path = crypto++
 	url = git@github.com:KayEss/fost-crypto.git
-[submodule "OpenSSL"]
-	path = OpenSSL
-	url = git@github.com:KayEss/fost-openssl.git
 [submodule "fost-base"]
 	path = fost-base
 	url = git@github.com:KayEss/fost-base.git
@@ -16,12 +13,6 @@
 [submodule "fost-internet"]
 	path = fost-internet
 	url = git@github.com:KayEss/fost-internet.git
-[submodule "fost-orm"]
-	path = fost-orm
-	url = git@github.com:KayEss/fost-orm.git
-[submodule "fost-py"]
-	path = fost-py
-	url = git@github.com:KayEss/fost-py.git
 [submodule "fost-web"]
 	path = fost-web
 	url = git@github.com:KayEss/fost-web.git
@@ -46,3 +37,9 @@
 [submodule "odin"]
 	path = odin
 	url = git@github.com:KayEss/odin.git
+[submodule "fost-wright"]
+	path = fost-wright
+	url = git@github.com:KayEss/fost-wright.git
+[submodule "json-schema"]
+	path = json-schema
+	url = git@github.com:KayEss/json-schema.git

@@ -1,10 +1,4 @@
-/bjam
-/bjam.exe
-/bjam.run
-/boost-build.jam
-/boost-version.cmd
-/boost-version.jam
-/build.tmp
-/dist
-/dist-*
-/python.opts.sh
+/build.tmp/
+/dist/
+/dist-*/
+/tmp/

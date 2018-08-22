@@ -4,6 +4,7 @@ git:
   submodules: false
 
 compiler:
+    - gcc
     - clang
 
 before_install:
@@ -14,7 +15,15 @@ before_install:
 
 install:
     - sudo apt-get install libboost-all-dev libbz2-dev libssl-dev python-dev uuid-dev
+    - if [ "$CXX" = "g++" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
+    - if [ "$CXX" = "g++" ]; then sudo apt-get update; fi
+    - if [ "$CXX" = "g++" ]; then sudo apt-get install g++-4.9; fi
+    - 'if [ "$CXX" = "g++" ]; then echo "using gcc : 4.9 : g++-4.9 ;" > ~/user-config.jam; fi'
     - Boost/install $(lsb_release -cs)
 
 script:
     - ./build toolset=$CC -q
+
+matrix:
+    allow_failures:
+        - compiler: gcc
