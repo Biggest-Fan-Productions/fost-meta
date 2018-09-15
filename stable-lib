@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+cd $(dirname $0)
+set -ex
+
+LIB=$1
+
+cd $LIB
+git fetch
+git co develop
+git merge --ff-only remotes/origin/develop
+git co master
+git merge --ff-only remotes/origin/master
+git merge --no-ff develop -m "Merge from develop
+
+$(git diff develop --stat)"
+git push
+git co develop
+
