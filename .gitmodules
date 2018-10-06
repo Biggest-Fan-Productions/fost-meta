@@ -43,3 +43,6 @@
 [submodule "json-schema"]
 	path = json-schema
 	url = git@github.com:KayEss/json-schema.git
+[submodule "libpqxx"]
+	path = libpqxx
+	url = git@github.com:jtv/libpqxx.git
