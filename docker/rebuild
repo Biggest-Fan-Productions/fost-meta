@@ -30,3 +30,8 @@ sudo docker build --no-cache \
         --tag fost/all:$TAG ..
 sudo docker push fost/all:$TAG
 
+if git branch | grep "* master" > /dev/null
+then {
+    latest all
+}
+fi
