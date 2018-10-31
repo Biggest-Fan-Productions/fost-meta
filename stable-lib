@@ -2,17 +2,15 @@
 cd $(dirname $0)
 set -ex
 
-LIB=$1
-
-cd $LIB
+cd $1
 git fetch
-git co develop
+git checkout develop
 git merge --ff-only remotes/origin/develop
-git co master
+git checkout master
 git merge --ff-only remotes/origin/master
 git merge --no-ff develop -m "Merge from develop
 
 $(git diff develop --stat)"
 git push
-git co develop
-
+git checkout develop
+git push
