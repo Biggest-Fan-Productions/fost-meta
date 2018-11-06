@@ -13,4 +13,5 @@ git merge --no-ff develop -m "Merge from develop
 $(git diff develop --stat)"
 git push
 git checkout develop
+git merge --no-ff master -m "Merge from master"
 git push
