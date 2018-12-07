@@ -43,3 +43,6 @@
 [submodule "libpqxx"]
 	path = libpqxx
 	url = git@github.com:jtv/libpqxx.git
+[submodule "pgasio"]
+	path = pgasio
+	url = git@github.com:KayEss/pgasio.git
