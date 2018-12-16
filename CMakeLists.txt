@@ -24,7 +24,7 @@ add_subdirectory(fostgres)
 add_subdirectory(json-schema)
 add_subdirectory(odin)
 add_subdirectory(pgasio)
-#add_subdirectory(pgasio/examples)
+add_subdirectory(pgasio/examples)
 add_subdirectory(threading)
 
 set(CMAKE_CXX_STANDARD 17)
