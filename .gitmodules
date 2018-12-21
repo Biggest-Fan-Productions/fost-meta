@@ -31,9 +31,6 @@
 [submodule "fostgres"]
 	path = fostgres
 	url = git@github.com:KayEss/fostgres.git
-[submodule "PostgreSQL"]
-	path = PostgreSQL
-	url = git@github.com:KayEss/fost-libpq.git
 [submodule "odin"]
 	path = odin
 	url = git@github.com:KayEss/odin.git
@@ -43,3 +40,9 @@
 [submodule "json-schema"]
 	path = json-schema
 	url = git@github.com:KayEss/json-schema.git
+[submodule "libpqxx"]
+	path = libpqxx
+	url = git@github.com:jtv/libpqxx.git
+[submodule "pgasio"]
+	path = pgasio
+	url = git@github.com:KayEss/pgasio.git

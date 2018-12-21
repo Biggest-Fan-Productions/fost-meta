@@ -13,11 +13,16 @@ function dockerize {
         --tag fost/$1:$TAG $1
     sudo docker push fost/$1:$TAG
 }
+function latest {
+    sudo docker tag fost/$1:$TAG fost/$1:latest
+    sudo docker push fost/$1:latest
+}
+
 
 sudo docker pull ubuntu:$UBUNTU
-dockerize ubuntu
-dockerize builder
-dockerize runtime
+dockerize ubuntu; latest ubuntu
+dockerize builder; latest builder
+dockerize runtime; latest runtime
 
 sudo docker build --no-cache \
         --build-arg TAG=$TAG \
@@ -25,3 +30,8 @@ sudo docker build --no-cache \
         --tag fost/all:$TAG ..
 sudo docker push fost/all:$TAG
 
+if git branch | grep "* master" > /dev/null
+then {
+    latest all
+}
+fi

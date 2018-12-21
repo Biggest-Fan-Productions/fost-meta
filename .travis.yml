@@ -1,29 +1,38 @@
 language: cpp
+sudo: required
+dist: xenial
 
 git:
-  submodules: false
+    submodules: false
+services:
+    - postgresql
 
 compiler:
     - gcc
     - clang
 
+env:
+    - CMAKE_BUILD_TYPE=Debug
+    - CMAKE_BUILD_TYPE=Release
+
+cache:
+    directories:
+        boost-cache
+
 before_install:
-    - sed -i 's/git@github.com:/git:\/\/github.com\//' .gitmodules
-    - git submodule init
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+    - git submodule update --init
+    - ln -s ../boost-cache Boost/boost
 
 install:
-    - sudo apt-get install libboost-all-dev libbz2-dev libssl-dev python-dev uuid-dev
-    - if [ "$CXX" = "g++" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
-    - if [ "$CXX" = "g++" ]; then sudo apt-get update; fi
-    - if [ "$CXX" = "g++" ]; then sudo apt-get install g++-4.9; fi
-    - 'if [ "$CXX" = "g++" ]; then echo "using gcc : 4.9 : g++-4.9 ;" > ~/user-config.jam; fi'
-    - Boost/install $(lsb_release -cs)
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo apt-get update -qq
+    - sudo apt-get install -qq -y ninja-build g++-8 libpq-dev postgresql-server-dev-all
 
 script:
-    - ./build toolset=$CC -q
+    - mkdir build.tmp && cd build.tmp
+    - 'if [ "$CXX" = "g++" ]; then export CC=gcc-8; export CXX=g++-8; fi'
+    - cmake .. -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -G Ninja -DSKIP_BUILD_TEST=ON
+    - ninja
+    - ninja check
 
-matrix:
-    allow_failures:
-        - compiler: gcc
