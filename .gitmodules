@@ -46,3 +46,6 @@
 [submodule "pgasio"]
 	path = pgasio
 	url = git@github.com:KayEss/pgasio.git
+[submodule "mdca-platform"]
+	path = mdca-platform
+	url = git@github.com:wfp/MDCA-Platform.git
