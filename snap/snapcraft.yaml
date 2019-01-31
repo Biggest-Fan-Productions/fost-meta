@@ -1,0 +1,15 @@
+name: fost
+base: core18
+version: ignored
+version-script: git describe
+
+summary: Fost development tools
+description: |
+  Development tools etc. for Fost
+
+grade: devel
+confinement: devmode
+
+parts:
+    fost:
+        plugin: cmake
