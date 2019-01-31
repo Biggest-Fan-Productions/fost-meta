@@ -5,6 +5,7 @@ set -ex
 TAG=$(git describe --dirty)
 UBUNTU=bionic
 
+rm -rf dist build.tmp
 
 function dockerize {
     sudo docker build --no-cache \
@@ -25,11 +26,23 @@ dockerize ubuntu; latest ubuntu
 dockerize builder; latest builder
 dockerize runtime; latest runtime
 
+# Build software and leave in `dist` folder
+sudo docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
+    -v $(pwd)/..:/src \
+    fost/builder bash -c \
+        "mkdir -p docker/build.tmp && \
+            cd docker/build.tmp && \
+            cmake -G Ninja \
+                -DCMAKE_BUILD_TYPE=Release \
+                -DCMAKE_INSTALL_PREFIX=../dist \
+                /src/  && \
+            ninja install/strip"
+
 sudo docker build --no-cache \
         --build-arg TAG=$TAG \
-        --tag fost/all:$TAG ..
 sudo docker push fost/all:$TAG
         --file all.dockerfile \
+        --tag fost/all:$TAG .
 
 if git branch | grep "* master" > /dev/null
 then {
