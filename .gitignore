@@ -1,4 +1,6 @@
 /build.tmp/
 /dist/
 /dist-*/
+/docker/build.tmp/
+/docker/dist/
 /tmp/
