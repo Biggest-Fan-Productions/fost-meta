@@ -11,10 +11,17 @@ grade: devel
 confinement: devmode
 
 parts:
+    locales-launch:
     fost:
         source: .
         plugin: cmake
         configflags:
         - -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX=/
-        stage-packages: [libpq5]
+        stage-packages: [libstdc++6, locales-all, libpq5]
+
+apps:
+  fostgres-test:
+    command: locales-launch fostgres-test
+  fost-webserver:
+    command: locales-launch fost-webserver
