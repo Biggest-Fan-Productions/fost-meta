@@ -12,4 +12,10 @@ confinement: devmode
 
 parts:
     fost:
+        source: .
         plugin: cmake
+        build-packages:
+          - g++
+          - libssl-dev
+          - libpq-dev
+          - postgresql-server-dev-all
