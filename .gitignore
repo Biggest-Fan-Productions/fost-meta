@@ -1,6 +1,11 @@
+/*.snap
 /build.tmp/
 /dist/
 /dist-*/
 /docker/build.tmp/
 /docker/dist/
+/parts/
+/prime/
+/snap/.snapcraft/
+/stage/
 /tmp/

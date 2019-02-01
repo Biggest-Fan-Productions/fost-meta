@@ -1,7 +1,7 @@
 name: fost
-base: core18
+#base: core18
 version: ignored
-version-script: git describe
+version-script: git describe --dirty
 
 summary: Fost development tools
 description: |
@@ -14,8 +14,7 @@ parts:
     fost:
         source: .
         plugin: cmake
-        build-packages:
-          - g++
-          - libssl-dev
-          - libpq-dev
-          - postgresql-server-dev-all
+        configflags:
+        - -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_INSTALL_PREFIX=/
+        stage-packages: [libpq5]
