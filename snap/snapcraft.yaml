@@ -1,0 +1,27 @@
+name: fost
+#base: core18
+version: ignored
+version-script: git describe --dirty
+
+summary: Fost development tools
+description: |
+  Development tools etc. for Fost
+
+grade: devel
+confinement: devmode
+
+parts:
+    locales-launch:
+    fost:
+        source: .
+        plugin: cmake
+        configflags:
+        - -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_INSTALL_PREFIX=/
+        stage-packages: [libstdc++6, locales-all, libpq5]
+
+apps:
+  fostgres-test:
+    command: locales-launch fostgres-test
+  fost-webserver:
+    command: locales-launch fost-webserver
