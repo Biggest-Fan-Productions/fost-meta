@@ -25,3 +25,14 @@ apps:
     command: locales-launch fostgres-test
   fost-webserver:
     command: locales-launch fost-webserver
+  json-schema-validator:
+    command: locales-launch json-schema-validator
+  odin:
+    command: locales-launch odin
+  pgasio-csj:
+    command: locales-launch pgasio-csj
+  pgasio-stats:
+    command: locales-launch pgasio-stats
+  wright-exec-helper:
+    command: locales-launch wright-exec-helper
+
