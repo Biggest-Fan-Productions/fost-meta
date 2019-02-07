@@ -8,12 +8,11 @@ UBUNTU=bionic
 rm -rf dist build.tmp
 
 function dockerize {
-    sudo docker build --no-cache \
+    sudo docker build --no-cache --file $1.dockerfile \
         --build-arg TAG=$TAG \
         --build-arg UBUNTU=$UBUNTU \
+        --tag fost/$1:$TAG .
     sudo docker push fost/$1:$TAG
-        --tag fost/$1:$TAG \
-        --file $1.dockerfile .
 }
 function latest {
     sudo docker tag fost/$1:$TAG fost/$1:latest
@@ -38,11 +37,10 @@ sudo docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
                 /src/  && \
             ninja install/strip"
 
-sudo docker build --no-cache \
+sudo docker build --no-cache --file all.dockerfile \
         --build-arg TAG=$TAG \
-sudo docker push fost/all:$TAG
-        --file all.dockerfile \
         --tag fost/all:$TAG .
+sudo docker push fost/all:$TAG
 
 if git branch | grep "* master" > /dev/null
 then {
