@@ -18,7 +18,12 @@ parts:
         configflags:
         - -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_INSTALL_PREFIX=/
+          -DSKIP_PYTHON=YES
         stage-packages: [libstdc++6, locales-all, libpq5]
+    odin-python:
+        source: odin
+        plugin: python
+        python-version: python3
 
 apps:
   fostgres-test:
