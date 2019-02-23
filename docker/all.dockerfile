@@ -1,6 +1,5 @@
 ## # Fost "All" Image
-ARG TAG
-FROM fost/runtime:$TAG
+FROM fost/runtime:latest
 
 COPY dist/bin /usr/bin/
 COPY dist/lib /usr/lib/

@@ -3,27 +3,11 @@ cd $(dirname $0)
 set -ex
 
 TAG=$(git describe --dirty)
-UBUNTU=bionic
 
 rm -rf dist build.tmp
 
-function dockerize {
-    sudo docker build --no-cache --file $1.dockerfile \
-        --build-arg TAG=$TAG \
-        --build-arg UBUNTU=$UBUNTU \
-        --tag fost/$1:$TAG .
-    sudo docker push fost/$1:$TAG
-}
-function latest {
-    sudo docker tag fost/$1:$TAG fost/$1:latest
-    sudo docker push fost/$1:latest
-}
-
-
-sudo docker pull ubuntu:$UBUNTU
-dockerize ubuntu; latest ubuntu
-dockerize builder; latest builder
-dockerize runtime; latest runtime
+sudo docker pull fost/builder:latest
+sudo docker pull fost/runtime:latest
 
 # Build software and leave in `dist` folder
 sudo docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
@@ -38,12 +22,12 @@ sudo docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
             ninja install/strip"
 
 sudo docker build --no-cache --file all.dockerfile \
-        --build-arg TAG=$TAG \
         --tag fost/all:$TAG .
 sudo docker push fost/all:$TAG
 
 if git branch | grep "* master" > /dev/null
 then {
-    latest all
+    sudo docker tag fost/all:$TAG fost/all:latest
+    sudo docker push fost/all:latest
 }
 fi
