@@ -34,6 +34,8 @@ apps:
     command: locales-launch json-schema-validator
   odin:
     command: locales-launch odin
+  odin-hash-rounds:
+    command: locales-launch odin-hash-rounds
   pgasio-csj:
     command: locales-launch pgasio-csj
   pgasio-stats:
