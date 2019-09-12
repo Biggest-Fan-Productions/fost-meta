@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+cd $(dirname $0)
+set -ex
+
+snapcraft clean fost odin-python
+snapcraft snap
+snapcraft push --release=edge fost_$(git describe --dirty)_amd64.snap
