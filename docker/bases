@@ -6,18 +6,18 @@ TAG=$(git describe --dirty)
 UBUNTU=bionic
 
 function dockerize {
-    sudo docker build --no-cache --file $1.dockerfile \
+    docker build --no-cache --file $1.dockerfile \
         --build-arg TAG=$TAG \
         --build-arg UBUNTU=$UBUNTU \
         --tag fost/$1:$TAG .
-    sudo docker push fost/$1:$TAG
+    docker push fost/$1:$TAG
 }
 function latest {
-    sudo docker tag fost/$1:$TAG fost/$1:latest
-    sudo docker push fost/$1:latest
+    docker tag fost/$1:$TAG fost/$1:latest
+    docker push fost/$1:latest
 }
 
-sudo docker pull ubuntu:$UBUNTU
+docker pull ubuntu:$UBUNTU
 dockerize ubuntu; latest ubuntu
 dockerize builder; latest builder
 dockerize runtime; latest runtime

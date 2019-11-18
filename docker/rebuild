@@ -6,11 +6,11 @@ TAG=$(git describe --dirty)
 
 rm -rf dist build.tmp
 
-sudo docker pull fost/builder:latest
-sudo docker pull fost/runtime:latest
+docker pull fost/builder:latest
+docker pull fost/runtime:latest
 
 # Build software and leave in `dist` folder
-sudo docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
+docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
     -v $(pwd)/..:/src \
     fost/builder bash -c \
         "mkdir -p docker/build.tmp && \
@@ -21,13 +21,13 @@ sudo docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
                 /src/  && \
             ninja install/strip"
 
-sudo docker build --no-cache --file all.dockerfile \
+docker build --no-cache --file all.dockerfile \
         --tag fost/all:$TAG .
-sudo docker push fost/all:$TAG
+docker push fost/all:$TAG
 
 if git branch | grep "* master" > /dev/null
 then {
-    sudo docker tag fost/all:$TAG fost/all:latest
-    sudo docker push fost/all:latest
+    docker tag fost/all:$TAG fost/all:latest
+    docker push fost/all:latest
 }
 fi
