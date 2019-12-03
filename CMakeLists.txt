@@ -29,5 +29,10 @@ add_subdirectory(pgasio)
 add_subdirectory(pgasio/examples)
 add_subdirectory(threading)
 
+if(USE_TAMARIND_LIBRARY)
+    add_subdirectory(tamarind)
+    add_subdirectory(tamarind/examples)
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(libpqxx)
