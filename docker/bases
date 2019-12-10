@@ -6,7 +6,7 @@ TAG=$(git describe --dirty)
 UBUNTU=bionic
 
 function dockerize {
-    docker build --no-cache --file $1.dockerfile \
+    docker build --file $1.dockerfile \
         --build-arg TAG=$TAG \
         --build-arg UBUNTU=$UBUNTU \
         --tag fost/$1:$TAG .

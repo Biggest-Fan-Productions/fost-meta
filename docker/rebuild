@@ -21,7 +21,7 @@ docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
                 /src/  && \
             ninja install/strip"
 
-docker build --no-cache --file all.dockerfile \
+docker build --file all.dockerfile \
         --tag fost/all:$TAG .
 docker push fost/all:$TAG
 
