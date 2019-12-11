@@ -51,4 +51,4 @@
 	url = git@github.com:wfp/MDCA-Platform.git
 [submodule "tamarind"]
 	path = tamarind
-	url = git@github.com:HotKit/tamarind.git
+	url = git@github.com:hotkit/tamarind.git
