@@ -52,3 +52,6 @@
 [submodule "tamarind"]
 	path = tamarind
 	url = git@github.com:hotkit/tamarind.git
+[submodule "makham"]
+	path = makham
+	url = git@github.com:HotKit/makham.git
