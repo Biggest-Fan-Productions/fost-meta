@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
+project(fost-meta)
 
 enable_testing()
 add_custom_target(check)
