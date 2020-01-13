@@ -21,7 +21,8 @@ docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
                 /src/  && \
             ninja install/strip"
 
-docker build --file all.dockerfile --tag fost/all:$TAG .
+docker build --file all.dockerfile \
+        --tag fost/all:$TAG .
 docker push fost/all:$TAG
 
 if git branch | grep "* master" > /dev/null
