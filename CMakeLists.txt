@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
+project(fost-meta)
 
 enable_testing()
 add_custom_target(check)
@@ -28,6 +29,12 @@ add_subdirectory(odin)
 add_subdirectory(pgasio)
 add_subdirectory(pgasio/examples)
 add_subdirectory(threading)
+
+if(USE_TAMARIND_LIBRARY)
+    add_subdirectory(makham)
+    add_subdirectory(makham/examples)
+    add_subdirectory(tamarind)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(libpqxx)
