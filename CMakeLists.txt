@@ -27,7 +27,6 @@ add_subdirectory(mdca-platform/mdca-common)
 add_subdirectory(mdca-platform/mdca-simulator)
 add_subdirectory(odin)
 add_subdirectory(pgasio)
-add_subdirectory(pgasio/examples)
 add_subdirectory(threading)
 
 if(USE_TAMARIND_LIBRARY)
