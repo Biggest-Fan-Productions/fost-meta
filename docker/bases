@@ -3,7 +3,7 @@ cd $(dirname $0)
 set -ex
 
 TAG=$(git describe --dirty)
-UBUNTU=bionic
+UBUNTU=focal
 
 function dockerize {
     docker build --file $1.dockerfile \
@@ -19,6 +19,6 @@ function latest {
 
 docker pull ubuntu:$UBUNTU
 dockerize ubuntu; latest ubuntu
+dockerize circleci; latest circleci
 dockerize builder; latest builder
 dockerize runtime; latest runtime
-
