@@ -42,12 +42,12 @@ jobs:
       - run:
           name: check tests
           command: ninja -j1 -C build.tmp check
-      - run:
-          name: postgres tests
-          command: |
-            apt-get install -y postgresql
-            pg_ctlcluster 12 main start
-            su postgres -p -c "ninja -j1 -C build.tmp pgtest"
+      #- run:
+          #name: postgres tests
+          #command: |
+            #apt-get install -y postgresql
+            #pg_ctlcluster 12 main start
+            #su postgres -p -c "ninja -j1 -C build.tmp pgtest"
 
 workflows:
   all-tests:
