@@ -39,6 +39,9 @@ jobs:
       - run:
           name: ninja
           command: ninja -j1 -C build.tmp
+      - run:
+          name: check tests
+          command: ninja -j1 -C build.tmp check
 
 workflows:
   all-tests:
@@ -48,4 +51,3 @@ workflows:
             parameters:
               compiler: [gcc, clang]
               variant: [Debug, Release]
-              
