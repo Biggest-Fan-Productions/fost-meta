@@ -5,7 +5,7 @@ MAINTAINER Kirit Saelensminde
 RUN \
     apt install -y \
         wget git build-essential cmake gcc-10 g++-10 clang ninja-build \
-        libssl-dev libboost-all-dev libpq-dev postgresql-server-dev-all \
+        libssl-dev libboost-all-dev postgresql libpq-dev postgresql-server-dev-all \
         libc++-dev libc++abi-dev && \
     apt clean
 
