@@ -15,7 +15,7 @@ docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
     fost/builder bash -c \
         "mkdir -p docker/build.tmp && \
             cd docker/build.tmp && \
-            cmake -G Ninja \
+            CC=gcc-10 CXX=g++-10 cmake -G Ninja \
                 -DCMAKE_BUILD_TYPE=Release \
                 -DCMAKE_INSTALL_PREFIX=../dist \
                 /src/  && \
