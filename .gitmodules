@@ -33,7 +33,7 @@
 	url = git@github.com:hotkit/fostgres.git
 [submodule "odin"]
 	path = odin
-	url = git@github.com:hotkit/odin.git
+	url = git@github.com:Biggest-Fan-Productions/odin.git
 [submodule "fost-wright"]
 	path = fost-wright
 	url = git@github.com:hotkit/fost-wright.git
