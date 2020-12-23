@@ -11,23 +11,23 @@ docker pull fost/runtime:latest
 
 # Build software and leave in `dist` folder
 docker run -it --rm -u $(id -u):$(id -g) -w /src/ \
-    -v $(pwd)/..:/src \
-    fost/builder bash -c \
-        "mkdir -p docker/build.tmp && \
+-v $(pwd)/..:/src \
+fost/builder bash -c \
+"mkdir -p docker/build.tmp && \
             cd docker/build.tmp && \
             CC=gcc-10 CXX=g++-10 cmake -G Ninja \
                 -DCMAKE_BUILD_TYPE=Release \
                 -DCMAKE_INSTALL_PREFIX=../dist \
                 /src/  && \
-            ninja install/strip"
+ninja install/strip"
 
 docker build --file all.dockerfile \
-        --tag fost/all:$TAG .
-docker push fost/all:$TAG
+--tag registry.digitalocean.com/biggestfan/fost/all:$TAG .
+docker push registry.digitalocean.com/biggestfan/fost/all:$TAG
 
 if git branch | grep "* master" > /dev/null
 then {
-    docker tag fost/all:$TAG fost/all:latest
-    docker push fost/all:latest
-}
+        docker tag registry.digitalocean.com/biggestfan/fost/all:$TAG registry.digitalocean.com/biggestfan/fost/all:latest
+        docker push registry.digitalocean.com/biggestfan/fost/all:latest
+    }
 fi
